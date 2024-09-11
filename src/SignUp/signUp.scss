@@ -1,0 +1,109 @@
+.signUp-main-cnt{
+    display: flex;
+    justify-content: center;
+    height: 95vh;
+    align-items: center;
+    flex-direction: column;
+}
+
+.signUp-flexcontainer1-cnt{
+    display: flex;
+    flex-direction: row;
+    padding: 10%;
+    border: 1px solid black;
+    border-radius: 10px;
+    justify-content: space-evenly;
+    width: 700px;
+    height: 400px;
+    gap: 70px;
+    padding: 50px;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.signUp-inputContainer-cnt{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    justify-content: space-between;
+    height: 40px; 
+}
+
+.signUp-userName-cnt{
+    height: 39px;
+    margin-bottom: -13px;
+}
+
+.signUp-secondInput-cnt{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    justify-content: space-between;
+    height: 40px;
+    margin-bottom: 2px;
+    margin-top: 5px;
+}
+
+
+
+.signUp-firstbuttoncontainer-cnt{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 35px;
+}
+
+.signUp-regiterButton-cnt{
+    background-color: mediumblue;
+    color: white;
+    height: 30px;
+    width: auto;
+    border-radius: 5px;
+}
+
+.signUp-imageContainer-cnt{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    gap: 15px;
+    font-size: 20px;
+    text-align: center;    
+    width: 220px;
+}
+
+.signUp-footercnt-cnt{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 770px;
+    font-size: 17px;
+}
+
+.signUp-rightfooter-cnt{
+    display: flex;
+    column-gap: 30px;
+}
+
+.signUp-firstCol-cnt{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.signUp-rowContainer-cnt{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.signUp-languagedropdown-cnt{
+    width: 150px;
+}
+
+.signUp-firstHeader-cnt{
+    color: orange;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 12px;
+}
