@@ -1,0 +1,92 @@
+.login-wrapper-cnt{
+    display: flex;
+    justify-content: center;
+    height: 90vh;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login-columncnt-cnt{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 350px;
+    height: 400px;
+    justify-content: space-around;
+    padding: 40px;
+    margin-bottom: 20px;
+}
+
+.login-headercnt-cnt{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    font-size: 20px;
+}
+
+.login-linkSection-cnt{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 18px;
+}
+
+
+.login-rightfooter-cnt{
+    display: flex;
+    column-gap: 30px;
+    margin-top: 9px;
+}
+
+.login-languagedropdown-cnt{
+    width: 120px;
+}
+
+.login-footercnt-cnt{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 420px;
+    font-size: 15px;
+}
+
+.login-createAccountLink-cnt{
+    color: blue;
+    font-size: 18px;
+    margin-top: 6px;
+    margin-left: 3px;
+}
+
+.login-forgetPasswordLink-cnt{
+    margin-top: -18px;
+    margin-left: 3px;
+    color: blue;
+    margin-bottom: 15px;
+}
+
+.login-firstHeader-cnt{
+    color: orange;
+    font-weight: 500;
+    font-size: 25px;
+}
+
+.login-secondHeader-cnt{
+    font-size: 27px;
+    margin-top: -4px;
+}
+
+.login-thirdHeader-cnt{
+    margin-bottom: -15px;
+
+}
+
+.login-dropdown-cnt{
+    height: 40px;
+    border: none;
+}
+
+.login-optionsLanguage-cnt{
+    margin-top: -7px;
+}
