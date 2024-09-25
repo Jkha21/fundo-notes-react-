@@ -1,0 +1,90 @@
+.dashCnt-header-cnt{
+    display: flex;
+    flex-direction: row;
+    padding-left: 0.4%;
+    padding-bottom: 0.8%;
+    padding-top: 0.4%;
+    padding-right: 0.4%;
+    border: 1px solid black;
+    height: 10%;
+    align-items: center;
+}
+
+.DashCnt-bar3-cnt{
+    width: 25px;
+    margin-left: 2%;
+    margin-top: 0.5%;
+    cursor: pointer;
+    border: 9px solid transparent;
+    &:hover{
+        border-radius: 50%;
+        background-color: rgb(234, 232, 232);
+    }
+}
+
+.DashCnt-keepIcon-cnt{
+    width: 2.8%;
+    height: 70%;
+    margin-left: 1.5%;
+    margin-top: 0.6%;
+}
+
+.dashCnt-headerlabel-cnt{
+    font-size: 20px;
+    margin-left: 1%;
+    margin-top: 0.2%;
+    margin-right: 10%;
+}
+
+
+.dashCnt-search-cnt{
+    width: 33%;
+    padding-left: 3.5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-radius: 10px;
+    border-color: white;
+    border-top: 0px;
+    border-left: 0px;
+    font-size: 17px;
+    margin-top: 0.5%;
+    background-color: rgb(244, 243, 243);
+    &:focus-within{
+        background-color: white;
+        box-shadow: 3px 3px 6px 2px rgba(255, 255, 255, 0.5);
+    }
+}
+
+.dashCnt-searchIcon-cnt{
+    width: 4%;
+    opacity: 0.5;
+    color: gray;
+    margin-right: -3.1%;
+    margin-top: 0.6%;
+    border: 5px solid transparent;
+    &:hover{
+        background-color: rgb(220, 217, 217);
+        border-radius: 50%;
+    }
+}
+
+
+[name='item']{
+    margin-left: 20%;    
+}
+
+
+[name=listItem]{
+    border: 4px solid transparent;
+    &:hover{
+        border-top-right-radius: 15%;
+        border-bottom-right-radius: 15%;
+        background-color: rgb(244, 240, 240);
+    }    
+}
+
+#dashCnt-bulbItem-cnt{
+    background-color: rgb(254, 222, 182);
+    border-top-right-radius: 25%;
+    border-bottom-right-radius: 25%;
+}

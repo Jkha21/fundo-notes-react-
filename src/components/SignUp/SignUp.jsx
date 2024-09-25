@@ -6,7 +6,7 @@ import Select from '@mui/material/Select';
 import TextField from '@mui/material/TextField';
 import InputLabel from '@mui/material/InputLabel';
 import kindpng_1822355 from './kindpng_1822355.png';
-import './signUp.scss';
+import './SignUp.scss';
 
 const SignUp = () => (
   <>
@@ -34,7 +34,7 @@ const SignUp = () => (
         </div>
       </div>
       <div className='signUp-imageContainer-cnt'>
-        <img src={kindpng_1822355} alt="FundoNotes image" height="200px" className="signUp-googleImage-cnt"/>
+        <img src={kindpng_1822355} alt="FundoNotes" height="200px" className="signUp-googleImage-cnt"/>
         <span className="signUp-middleContainer-cnt">One account. All of Fundo working for you.</span>
       </div>
       </div>
