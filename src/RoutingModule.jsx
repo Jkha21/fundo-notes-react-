@@ -1,10 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Login from "./components/Login/Login";
 import SignUp from "./components/SignUp/SignUp";
 import DashboardContainer from "./components/DashboardContainer/DashboardContainer";
 import NotesContainer from "./components/NotesContainer/NotesContainer";
 import ArchiveContainer from "./components/ArchiveContainer/ArchiveContainer";
 import TrashContainer from "./components/TrashContainer/TrashContainer";
+import Login from "./components/Login/Login";
 
 export default function RoutingModule (){
     const AppRoute = createBrowserRouter([

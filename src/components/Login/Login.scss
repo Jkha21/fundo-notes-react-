@@ -1,7 +1,7 @@
 .login-wrapper-cnt {
     display: flex;
     justify-content: center;
-    height: 90vh;
+    height: 100vh;
     align-items: center;
     flex-direction: column;
 
@@ -11,7 +11,7 @@
         border: 1px solid black;
         border-radius: 15px;
         width: 350px;
-        height: 400px;
+        height: 450px;
         justify-content: space-around;
         padding: 40px;
         margin-bottom: 20px;
@@ -35,7 +35,8 @@
             }
 
             .login-thirdHeader-cnt {
-                margin-bottom: -15px;
+                margin-top: 5%;
+                margin-bottom: -5px;
             }
         }
 
@@ -94,4 +95,21 @@
         height: 40px;
         border: none;
     }
+}
+
+
+#errorEmailCnt{
+    margin-top: -6px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    color: red;
+    font-weight: 500;
+}
+
+#errorPasswordCt{
+    margin-top: -6px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    color: red;
+    font-weight: 500;
 }

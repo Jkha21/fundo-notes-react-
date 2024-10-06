@@ -1,0 +1,237 @@
+$light-grey: rgb(233, 230, 230);
+$placeholder-color: rgb(184, 178, 178);
+$button-hover-color: rgb(241, 237, 237);
+$shadow-color: rgba(125, 120, 120, 0.5);
+
+.noteInput-tickwrapper-cnt {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5%;
+    margin-left: 25%;
+    position: relative;
+}
+
+.noteUI-wrapper-cnt {
+    padding: 12px 16px;
+    margin-left: 20%;
+    margin-top: 2%;
+    height: auto;
+    width: 40%;
+    border: 0.01px solid $light-grey;
+    border-radius: 20px;
+    transition: box-shadow 0.2s ease;
+
+    &:hover {
+        box-shadow: 0 4px 8px $shadow-color; 
+    }
+}
+
+.noteInput-inputCnt-cnt {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.noteInput-titleInput-cnt, 
+.noteInput-noteInputbox-cnt {
+    border: 0;
+    padding-left: 15px;
+}
+
+.noteInput-titleInput-cnt {
+    font-size: 25px;
+    height: 40px;
+    padding-right: 10px;
+    &::placeholder {
+        font-size: 24px;
+        color: $placeholder-color;
+    }
+}
+
+.noteInput-noteInputbox-cnt {
+    height: 28px;
+
+    &::placeholder {
+        font-size: 19px;
+        color: $placeholder-color;
+    }
+}
+
+.noteUI-iconsactions-cnt {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 8%;
+    gap: 10px;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+
+    // Icons
+    .dashbd-iconAt-cnt {
+        height: 20px;
+        width: 20px;
+        border: 4px solid transparent;
+        &:hover{
+            cursor: pointer;
+            background-color: rgb(211, 205, 205);
+            border-radius: 50%;
+        }
+    }
+
+    .noteUI-undo-cnt,
+    .noteUI-redo-cnt {
+        opacity: 0.3;
+        height: 20px;
+        width: 20px;
+        margin-top: 3px;
+        margin-right: 5px;
+    }
+}
+
+.noteInput-closeBtn-cnt {
+    border: 0;
+    width: 20%;
+    height: 35px;
+    background-color: white;
+    margin-left: 15%;
+    margin-top: 8%;
+    &:hover {
+        background-color: $button-hover-color;
+        border-radius: 2px;
+    }
+}
+
+.noteInput-inputCnt-cnt :focus {
+    border: 0;
+    outline: 0;
+}
+
+.dashbd-icon-cnt{
+    height: 20px;
+    align-items: flex-end;
+    border: 4px  solid transparent;
+    &:hover{
+        background-color: $light-grey;
+        border-radius: 50%;
+    }
+}
+
+.noteInput-dashwrap-cnt {
+    display: flex;
+    flex-direction: row;
+    padding-top: 0.1%;
+    width: 30%;
+    height: 5%;
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin-top: 4%;
+    margin-left: 25%;
+    margin-right: 35%;
+    margin-bottom: 2%;
+    align-items: center;
+    font-size: large;
+    padding-right: 1%;
+}
+
+.noteInput-dashinput-cnt {
+    display: flex; /* Use flexbox to align items */
+    flex: 1; /* Allow this container to grow */
+    padding-left: 2%;
+    justify-content: space-between;
+}
+
+.noteInput-noteInputCnt-cnt {
+    // flex: 1; /* Make input take available space */
+    // height: 40px; /* Adjust height as needed */
+    border: 0; /* Remove border */
+    // outline: none; /* Remove outline */
+    margin-right: 10px; /* Space between input and icons */
+    width: 100%;
+    &:focus{
+        outline: none;
+    }
+}
+
+
+.dashbd-icon-ct{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: -3%;
+    padding-left: 1%;
+}
+
+.color-swatch{
+    width: 30px;
+    height: 30px;
+    border: 1px solid transparent;
+    border-radius: 50%;
+    &:hover{
+        border-color: black;
+    }
+}
+
+.color-palette-cnt{
+    display: flex;
+    flex-direction: row;
+    padding: 5px 5px;   
+}
+
+.dashbd-iconact-cnt{
+    display: flex;
+    flex-direction: row;
+}
+
+@media (min-width:350px) and (max-width:600px){
+    .noteInput-closeBtn-cnt{
+        margin-left: 0px;
+    }
+    .noteInput-dashwrap-cnt{
+        margin-left: 6%;
+        width: 70%;
+        margin-right: 20%;
+    }
+
+    .dashbd-subNotes-ct{
+        gap: 5%;
+    }
+
+    .dashbd-nav-cnt{
+        gap: 2px;
+        padding-top: 2px;
+        margin-left: 2px;
+    }
+
+    .noteInput-inputCnt-cnt{
+        width: 100%;
+    }
+
+    .noteUI-wrapper-cnt{
+        margin-top: 5%;
+        width: 65%;
+        // height: 8%;
+        // margin-left: 10%;
+    }
+
+    .noteUI-iconsactions-cnt{
+        gap: 1px;
+    }
+
+    .dashbd-icon-ct{
+        margin-left: -10px;
+    }
+
+    .noteInput-titleInput-cnt{
+        height: 50%;
+    }
+    
+    .noteInput-noteInputbox-cnt{
+        margin-right: 80%;
+    }
+
+    .noteInput-dashinput-cnt{
+        height: 100%;
+    }
+
+}
