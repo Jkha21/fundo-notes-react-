@@ -5,8 +5,9 @@ import './ArchiveContainer.scss';
 import { useSelector } from "react-redux";
 
 export default function ArchiveContainer({handleArchiveClick}){
-    const [archiveList, setArchive] = useState();
-    const getArchiveList = useSelector((store) => store.notes.archiveList);
+    const [archiveList, setArchive] = useState([]);
+    const getArchiveList = useSelector((store) => store.notes.notesList);
+    console.log(getArchiveList)
     useEffect(()=>{
         getArchiveNotes();
     }, []);

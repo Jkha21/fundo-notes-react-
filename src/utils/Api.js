@@ -1,31 +1,33 @@
 import axios from "axios";
-const BASE_URL = "http://localhost:5000/api/";
+const BASE_URL_USER = "http://localhost:5000/api/users";
+const BASE_URL_NOTES = "http://localhost:5000/api/notes/";
 const getAuth = () =>{
     return `Bearer ${localStorage.getItem('fundoo-token')}`;
 };
+
 export const createUser = async(payload) => {
-    const res = await axios.post((BASE_URL) +'/users', payload);
+    const res = await axios.post(`${BASE_URL_USER}/`, payload);
     return res;
 }
 
-export const LoginApi = async(payload) => {
-    const res = await axios.post(BASE_URL+"/users/login", payload);
+export const LoginApi = async(endpoint, payload) => {
+    const res = await axios.post(`${BASE_URL_USER}/${endpoint}`, payload);
     return res;   
 };
 
-export const ForgetPwdApi = async(payload) => {
-    const res = await axios.post(BASE_URL+"/users/forget_pwd", payload);
+export const ForgetPwdApi = async(endpoint, payload) => {
+    const res = await axios.post(`${BASE_URL_USER}/${endpoint}`, payload);
     return res;
 }
 
 export const ResetPwdApi = async(payload) => {
-    const res = await axios.post(BASE_URL+'/users/reset_pwd', payload);
+    const res = await axios.post(`${BASE_URL_USER}/`, payload);
     return res;
 }
 
 
 export const createNoteApi = async(payload) => {
-    return await axios.post(BASE_URL+'/notes/', payload, {
+    return await axios.post(`${BASE_URL_NOTES}/`, payload, {
         headers: {
             Authorization: getAuth()
         }
@@ -33,8 +35,8 @@ export const createNoteApi = async(payload) => {
 };
 
 
-export const getAllNotesApi = async() => {
-    return await axios.get(BASE_URL+'/notes/allNotes', {
+export const getAllNotesApi = async(endpoint) => {
+    return await axios.get(`${BASE_URL_NOTES}/${endpoint}`, {
         headers: {
             Authorization: getAuth()
         }
@@ -42,16 +44,16 @@ export const getAllNotesApi = async() => {
 };
 
 
-export const getNoteByIdApi = async(id) => {
-    return await axios.get(`${BASE_URL}/notes/findNote/${id}`, {
+export const getNoteByIdApi = async(endpoint) => {
+    return await axios.get(`${BASE_URL_NOTES}/${endpoint}`, {
         headers: {
             Authorization: getAuth()
         }
     });
 };
 
-export const updateNoteByIdApi = async(id, payload) => {
-    return await axios.put(`${BASE_URL}/notes/updateNote/${id}`, payload, {
+export const updateNoteByIdApi = async(endpoint, payload) => {
+    return await axios.put(`${BASE_URL_NOTES}/${endpoint}`, payload, {
         headers: {
             Authorization: getAuth()
         }
@@ -59,16 +61,16 @@ export const updateNoteByIdApi = async(id, payload) => {
 };
 
 
-export const delNoteByIdApi = async(id) => {
-    return await axios.delete(`${BASE_URL}/notes/delNote/${id}`, {
+export const delNoteByIdApi = async(endpoint) => {
+    return await axios.delete(`${BASE_URL_NOTES}/${endpoint}`, {
         headers: {
             Authorization: getAuth()
         }
     });
 };
 
-export const archiveNotesByIdApi = async(id) => {
-    return await axios.put(`${BASE_URL}/notes/isArchive/${id}`, {}, {
+export const archiveNotesByIdApi = async(endpoint) => {
+    return await axios.put(`${BASE_URL_NOTES}/${endpoint}`, {}, {
         headers: {
             Authorization: getAuth()
         }   
@@ -76,8 +78,8 @@ export const archiveNotesByIdApi = async(id) => {
 };
 
 
-export const trashNotesApiById = async(id, payload) => {
-    return await axios.put(`${BASE_URL}/notes/isTrash/${id}`, payload, {
+export const trashNotesApiById = async(endpoint) => {
+    return await axios.put(`${BASE_URL_NOTES}/${endpoint}`, {}, {
         headers: {
             Authorization: getAuth()
         }

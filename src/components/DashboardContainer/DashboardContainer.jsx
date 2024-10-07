@@ -12,6 +12,9 @@ import { Box, List, ListItem, ListItemText } from '@mui/material';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllNotesApi } from '../../utils/Api';
+import { getNotesToList } from '../../utils/Store/NoteSlice';
 
 const DrawerList = ({ onItemClick }) => (
     <Box sx={{ width: 250 }} role="presentation" id='dashCnt-drawer-ct'>
@@ -48,8 +51,13 @@ export default function DashboardContainer() {
     const navigate = useNavigate();
     const location = useLocation();
     const [head, setHead] = useState('Keep');
-
+    const dispatch = useDispatch();
+    
     useEffect(() => {
+        getAllNotes()
+    }, []);
+
+    useEffect(() => {     
         switch (location.pathname) {
             case '/archive':
                 setHead('Archive');
@@ -65,6 +73,7 @@ export default function DashboardContainer() {
         }
     }, [location.pathname]);
 
+
     const handleItemClick = (path) => {
         navigate(path);
         setDrawer(false);
@@ -73,11 +82,15 @@ export default function DashboardContainer() {
         setDrawer(true);
     };
 
-
+    const getAllNotes = async() => {
+        let notes = await getAllNotesApi('allNotes');
+        dispatch(getNotesToList(notes.data.data));
+    }
+    
 
 
     return (
-        <>
+        <>  
             <div className="dashCnt-header-cnt">
                 <MenuOutlinedIcon className="DashCnt-bar3-cnt" onClick={toggleDrawer} />
                 {head === "Keep" && <img src={keepIcon} alt="keepIcon" className='DashCnt-keepIcon-cnt' />}
@@ -97,8 +110,8 @@ export default function DashboardContainer() {
                 <EditOutlinedIcon onMouseEnter={handleMouseEnter} className='dashbd-nts-ct' />
                 <ArchiveOutlinedIcon onMouseEnter={handleMouseEnter} className='dashbd-nts-ct' />
                 <DeleteOutlineOutlinedIcon onMouseEnter={handleMouseEnter} className='dashbd-nts-ct' />
-            </div>
-            <Outlet className="dashbd-outlet-cnt"/>
+            </div>        
+            <Outlet className="dashbd-outlet-cnt" />
             </div>
         </>
     );

@@ -5,17 +5,17 @@ import './TrashContainer.scss';
 import { useSelector } from "react-redux";
 
 export default function TrashContainer(handleDeleteClick){
-    const [trashList, setTrash] = useState();
-    const getTrashList = useSelector((store) => store.notes.trashList);
-    // setTrash(getTrashList);
+    const [trashList, setTrash] = useState([]);
+    const getTrashList = useSelector((store) => store.notes.notesList);
+    
     useEffect(()=>{
         getDelNotes();
     }, []);
-    async function getDelNotes(){
+
+    const getDelNotes = () =>{
         try{
-            const data = await getAllNotesApi();
-              console.log(data);
-            setTrash(data.data.data);
+            setTrash(getTrashList);
+            console.log(trashList)
         }catch(error){
           console.error(error);
         }
@@ -24,15 +24,13 @@ export default function TrashContainer(handleDeleteClick){
     function handleDeleteClick(data, action){
         if(action === "restore" || action === "permanentDelete"){
             setTrash(trashList.filter(note => note._id !== data._id));
-        }else if(action === "permanentDelete"){
-            getDelNotes();
         }
     };
 
 
     return(
         <>  <div className="dashbd-trash-cnt">
-            {getTrashList?.map(note => note.isDeleted ?(
+            {trashList?.map(note => note.isDeleted ?(
             <Notecard noteDetails={note} updateList={handleDeleteClick} key={note._id} />
             ):null
             )}  

@@ -11,20 +11,12 @@
         const getData = useSelector((store) => store.notes.notesList);
         console.log(getData)
         useEffect(()=>{
-            getNotes();
+            setNotesList(getData);
         }, []);
         
-        async function getNotes(){
-            try{
-                const data = await getAllNotesApi();
-                setNotesList(data.data.data);
-            }catch(error){
-            console.error(error);
-            }
-        }
-
+        
         function handleUpdateList(data, action){
-            if(action === "archive" || action === 'trash'){
+            if(action === "archive" || action === "trash"){
                 setNotesList(notesList.filter(note => note._id !== data._id));
             }else if(action === "color" || action === "update"){
                 setNotesList(notesList.map(note => {
@@ -33,7 +25,7 @@
                     return note
                     }));
             }else if(action === "create"){
-                setNotesList([data, ...notesList]);
+                setNotesList(getData);
             };
         };
 

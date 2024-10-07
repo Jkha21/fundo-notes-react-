@@ -32,34 +32,32 @@ const Notecard = ({noteDetails, updateList}) =>{
     const [open, setOpen] = React.useState(false);
     const [colorMenu, setColorMenu] = useState(null);
     const colorMenuClick = Boolean(colorMenu);
-
-    // const [anchorEl, setAnchorEl] = React.useState(null);
     
     const handleIconsClick = async(action, obj) => {
         if(action === "archive"){
-            archiveNotesByIdApi(_id);
-            console.log()
+            archiveNotesByIdApi(`isArchive/${_id}`);
             dispatch(archiveNoteFromList(noteDetails));
             updateList(noteDetails, "archive");
         }else if(action === "trash"){
-            // trashNotesApiById(_id);
+            trashNotesApiById(`isTrash/${_id}`);
             dispatch(removeNoteFromList(noteDetails));    
-            updateList(noteDetails, "trash");
+            updateList(noteDetails, action);
             handleMenuClose();
         }else if(action === "color"){
-            const data = await updateNoteByIdApi(_id, obj); 
+            const data = await updateNoteByIdApi(`updateNote/${_id}`, obj); 
             updateList(data.data.data, "color");
             handleColorMenuClose();
         }else if(action === "restore"){
-            trashNotesApiById(_id);
+            trashNotesApiById(`isTrash/${_id}`);
             updateList(noteDetails, "restore");
         }else if(action === "permanentDelete"){
-            delNoteByIdApi(_id);
             updateList(noteDetails, "delete");
+            delNoteByIdApi(`delNote/${_id}`);
         }else if(action === "unarchive"){
-            archiveNotesByIdApi(_id);
+            archiveNotesByIdApi(`isArchive/${_id}`);
             updateList(noteDetails, "unarchive");
         }
+        updateList(noteDetails, action);
     };
     
     const handleMenuClick = (event) => {
@@ -73,17 +71,6 @@ const Notecard = ({noteDetails, updateList}) =>{
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-    const style = {
-        position: 'absolute', 
-        top: '50%', 
-        left: '50%', 
-        transform: 'translate(-50%, -50%)', 
-        width: 500, 
-        bgcolor: 'background.paper', 
-        border: '2px solid #000', 
-        boxShadow: 24, 
-        p: 4 
-    };
 
     const handleColorMenuClick = (event) =>{
         setColorMenu(event.currentTarget);
@@ -143,10 +130,12 @@ const Notecard = ({noteDetails, updateList}) =>{
         </div>
         </div>:
       <Modal
+        anchorEl={open}
         open={open}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        className='noteCard-edit-cnt'
       >
         <AddNote noteDetails= {noteDetails} openAddNote={true} />
       </Modal>

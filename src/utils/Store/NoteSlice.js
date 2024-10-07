@@ -6,18 +6,20 @@ const noteSlice = createSlice({
     notesList: []
   },
   reducers: {
-    addNoteToList: (state, action) => {
-        state.notesList.push(action.payload);
+    getNotesToList: (state, action) => {
+        state.notesList = action.payload;
     },
     removeNoteFromList: (state, action) => {
-      console.log("deleted the node", action.payload);
       state.notesList = state.notesList?.filter(item => item._id !== action.payload._id);
     },
     archiveNoteFromList: (state, action) => {
-      state.notesList = state.notesList.filter(item => item !== action.payload);
+      state.notesList = state.notesList.filter(item => item._id !== action.payload._id);
+    },
+    addNoteToList: (state, action) => {
+      state.notesList.push(action.payload)
     }
   },
 });
 
-export const { addNoteToList, removeNoteFromList, archiveNoteFromList } = noteSlice.actions;
+export const { getNotesToList, removeNoteFromList, archiveNoteFromList, addNoteToList } = noteSlice.actions;
 export default noteSlice.reducer;
