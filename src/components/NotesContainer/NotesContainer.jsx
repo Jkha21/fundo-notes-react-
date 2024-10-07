@@ -9,12 +9,11 @@
     export default function NotesContainer(){
         const [notesList, setNotesList] = useState([]);
         const getData = useSelector((store) => store.notes.notesList);
-        console.log(getData)
         useEffect(()=>{
             setNotesList(getData);
         }, []);
         
-        
+
         function handleUpdateList(data, action){
             if(action === "archive" || action === "trash"){
                 setNotesList(notesList.filter(note => note._id !== data._id));
@@ -25,7 +24,7 @@
                     return note
                     }));
             }else if(action === "create"){
-                setNotesList(getData);
+                setNotesList([data, ...notesList]);
             };
         };
 

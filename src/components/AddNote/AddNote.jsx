@@ -83,10 +83,6 @@ const AddNote = ({noteDetails={}, openAddNote=false, updateNote}) =>{
         setColorMenu(null);
     };
 
-    // const [backgroundColor, setBackgroundColor] = useState({Color});
-
-
-
     
     return (
     <>

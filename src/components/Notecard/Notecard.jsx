@@ -37,7 +37,7 @@ const Notecard = ({noteDetails, updateList}) =>{
         if(action === "archive"){
             archiveNotesByIdApi(`isArchive/${_id}`);
             dispatch(archiveNoteFromList(noteDetails));
-            updateList(noteDetails, "archive");
+            updateList(noteDetails, action);
         }else if(action === "trash"){
             trashNotesApiById(`isTrash/${_id}`);
             dispatch(removeNoteFromList(noteDetails));    
@@ -45,19 +45,18 @@ const Notecard = ({noteDetails, updateList}) =>{
             handleMenuClose();
         }else if(action === "color"){
             const data = await updateNoteByIdApi(`updateNote/${_id}`, obj); 
-            updateList(data.data.data, "color");
+            updateList(data.data.data, action);
             handleColorMenuClose();
         }else if(action === "restore"){
             trashNotesApiById(`isTrash/${_id}`);
-            updateList(noteDetails, "restore");
+            updateList(noteDetails, action);
         }else if(action === "permanentDelete"){
-            updateList(noteDetails, "delete");
+            updateList(noteDetails, action);
             delNoteByIdApi(`delNote/${_id}`);
         }else if(action === "unarchive"){
             archiveNotesByIdApi(`isArchive/${_id}`);
-            updateList(noteDetails, "unarchive");
+            updateList(noteDetails, action);
         }
-        updateList(noteDetails, action);
     };
     
     const handleMenuClick = (event) => {
@@ -74,7 +73,6 @@ const Notecard = ({noteDetails, updateList}) =>{
 
     const handleColorMenuClick = (event) =>{
         setColorMenu(event.currentTarget);
-        console.log(colorMenu);
     };
 
     const handleColorMenuClose = () =>{
@@ -87,16 +85,16 @@ const Notecard = ({noteDetails, updateList}) =>{
     <>  
         {!open?<div className="noteCard-tickNote-cnt" >
         < CheckCircleRoundedIcon className="noteCard-tick-cnt" />
-        <div className="noteCard-wrapper-cnt" style={{backgroundColor: Color}}>
+        <div className="noteCard-trashwrapper-cnt" style={{backgroundColor: Color}}>
                 <span className="noteUI-content-cnt" onClick={handleOpen}>
                     {Title}
                 </span><br />
                 <span onClick={handleOpen} className='noteCard-description-cnt'>{Description}</span>
             {
                 isDeleted?
-            <div className="noteUI-actions-cnt">
-                <RestoreFromTrashOutlinedIcon className="size-6" onClick={() => handleIconsClick('restore')}/> 
-                <DeleteForeverOutlinedIcon className="size-6" onClick={() => handleIconsClick('permanentDelete')}/>
+            <div className="noteUI-trashActions-cnt">
+                <RestoreFromTrashOutlinedIcon className="notecard-trashOp-ct" onClick={() => handleIconsClick('restore')}/> 
+                <DeleteForeverOutlinedIcon className="notecard-trashOp-ct" onClick={() => handleIconsClick('permanentDelete')}/>
             </div>:
             <div className="noteCard-actions-cnt">
             < NotificationsNoneOutlinedIcon className="size-6"/>

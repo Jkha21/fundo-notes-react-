@@ -15,7 +15,6 @@ export default function TrashContainer(handleDeleteClick){
     const getDelNotes = () =>{
         try{
             setTrash(getTrashList);
-            console.log(trashList)
         }catch(error){
           console.error(error);
         }
